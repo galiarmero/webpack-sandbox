@@ -1,1 +1,3 @@
 # webpack-sandbox
+
+## Learning notes
