@@ -33,6 +33,8 @@ module.exports = {
 };
 ```
 
+See more ways of configuring [**Entry Points**](./02_Entry_Points.md).
+
 ## Output
 
 The **output** dictates where _webpack_ will spew the _bundles_ it creates and how these files should be named.
@@ -51,9 +53,11 @@ module.exports = {
 };
 ```
 
+See more ways of configuring [**Output**](./03_Output.md).
+
 ## Loaders
 
-**Loader** allow _webpack_ to process more than just JavaScript files (since it only understands JS).
+**Loaders** allow _webpack_ to process more than just JavaScript files (since it only understands JS).
 
 These **loaders** convert all kinds of files to valid modules that _webpack_ can process. That is, it transfoms any file into a module that can be included in the app's _dependency graph_ and eventually, the output bundle. Having **loaders** enables us to simply import any type of file in our app, as if they were modules.
 
