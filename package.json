@@ -1,0 +1,30 @@
+{
+  "name": "webpack-sandbox",
+  "version": "1.0.0",
+  "description": "webpack study project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/galiarmero/webpack-sandbox.git"
+  },
+  "keywords": [
+    "webpack",
+    "module",
+    "bundler"
+  ],
+  "author": "Gali Armero",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/galiarmero/webpack-sandbox/issues"
+  },
+  "homepage": "https://github.com/galiarmero/webpack-sandbox#readme",
+  "devDependencies": {
+    "webpack": "^3.10.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
+}
