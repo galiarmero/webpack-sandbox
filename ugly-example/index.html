@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>Getting Started</title>
+        <script src="https://unpkg.com/lodash@4.16.6"></script>
+    </head>
+    <body>
+        <script src="./src/index.js"></script>
+        <!--
+            What's ugly with this:
+                - index.js never really specified a dependency for Lodash.
+                - if a dependency is missing or included in the wrong order, the app will not function
+                - if dependency is not used, browser will be forced to download unnecessary code
+        -->
+    </body>
+</html>
