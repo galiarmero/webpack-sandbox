@@ -4,7 +4,8 @@
   "description": "webpack study project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": ".\\node_modules\\.bin\\webpack"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,9 @@
   },
   "homepage": "https://github.com/galiarmero/webpack-sandbox#readme",
   "devDependencies": {
+    "css-loader": "^0.28.9",
+    "file-loader": "^1.1.6",
+    "style-loader": "^0.20.1",
     "webpack": "^3.10.0"
   },
   "dependencies": {

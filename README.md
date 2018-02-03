@@ -59,5 +59,74 @@ Or...
 It will look for **webpack.config.js** by default. 
 
 
+## Loading CSS
+`style-loader` combined with `css-loader` should be added as **loaders** in configuration.
+```
+npm install --save-dev style-loader css-loader
+```
+
+**webpack.config.js**
+```js
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    'css-loader'
+                ]
+            }
+        ]
+    }
+```
+
+When a css file is imported to a module, a `<style>` tag containing the css file will automatically be added to the `<head>` tag of any HTML file that uses a bundle containing the module.
+
+```js
+import './style.css';
+```
+
+## Loading Images
+
+For images, meanwhile, we use `file-loader`.
+```
+npm install --save-dev file-loader
+```
+
+Configuration would look like this:
+
+```js
+{
+    test: /\.(png|svg|jpg|gif)$/,
+    use: [
+        'file-loader'
+    ]
+}
+```
+
+What this does is everytime an image is imported, it will be processed and added to the `output` directory. Below, `Logo` will contain the resolved final url of the processed image (it will have a hash filename). 
+
+```js
+import Logo from '../images/webpack-logo.svg';
+```
+
+`css-loader` also resolves any `@import` or `url()` to the final url of the processed file. So this css:
+
+```css
+.hello {
+    color: red;
+    background: url(../images/webpack-logo.svg)
+}
+```
+will resolve to this:
+```css
+.hello {
+    color: red;
+    background: url(2baa77d6015e6de6adf1ffa247530568.svg)
+}
+```
+
+**TODO (seek for answers):** How does `css-loader` and `file-loader` work together to have the same final url of the processed image? Who does the processing? How does the other know of the final url?
+
 ## Learning notes
-This project contains [learning notes](./notes) that I put together as I study _webpack_.
+This project contains [learning notes](./notes) put together while studying _webpack_.
