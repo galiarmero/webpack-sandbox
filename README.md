@@ -172,6 +172,19 @@ JSON-format files, meanwhile, are naturally supported by _webpack_. This piece o
 import Data from './data.json';
 ```
 
+## HtmlWebpackPlugin
+
+This plugin creates HTML files to serve _webpack_ bundles, which may change filenames every compilation.
+
+```
+npm install --save-dev html-webpack-plugin
+```
+
+## The Manifest
+
+How does _webpack_ know what files are being generated? It maintains a **manifest** to tracks how all modules map to the output bundles.
+
+If there is a need to manage `output` in other ways, playing with **manifest** is a good way to start. There is a plugin called [WebpackManifestPlugin](https://github.com/danethurber/webpack-manifest-plugin) which extracts the manifest to a JSON file.
 
 ## Learning notes
 This project contains [learning notes](./notes) put together while studying _webpack_.
