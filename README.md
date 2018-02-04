@@ -1,5 +1,49 @@
 # webpack-sandbox
 
+## Why do we need webpack?
+
+Say for example we have this JavaScript file:
+**index.js**
+```js
+function component() {
+    var element = document.createElement('div');
+
+    // uses Lodash but you can't really know in this file
+    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+
+    return element;
+}
+
+document.body.appendChild(component());
+```
+
+The '_' object used to call `join()` is actually Lodash, a JavaScript utility library. But we will never know just by looking at this file alone. So let's check the usage in an HTML file.
+
+**index.html**
+```html
+<html>
+    <head>
+        <title>Getting Started</title>
+        <script src="https://unpkg.com/lodash@4.16.6"></script>
+    </head>
+    <body>
+        <script src="./src/index.js"></script>
+    </body>
+</html>
+```
+
+Lodash exports the `_` object which wraps multiple utility functions. `index.js` assumes that `_` exists, and this case it does since Lodash is included in the page ahead of `index.js`. But the latter never really asserted that it needs Lodash.
+
+There are problems with this setup:
+
+1. It is not apparent that a script depends on another library or module. It did not declare a need for them.
+2. If a dependency is missing or put in the wrong order, the app won't work. It can't resolve the dependency.
+3. If a library is imported in a page without anyone using it, we are making the browser download something it won't use. That's wasteful.
+
+webpack solves these problems. It manages our code and bundles modules and their dependencies.
+
+The example can be found in [ugly-example](./ugly-example).
+
 ## Running webpack
 
 ### No configuration
