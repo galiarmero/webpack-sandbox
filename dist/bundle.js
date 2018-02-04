@@ -17271,7 +17271,7 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(9)(content, options);
+var update = __webpack_require__(10)(content, options);
 
 if(content.locals) module.exports = content.locals;
 
@@ -17312,7 +17312,7 @@ exports = module.exports = __webpack_require__(8)(false);
 
 
 // module
-exports.push([module.i, ".hello {\r\n    color: red;\r\n    background: url(" + escape(__webpack_require__(0)) + ")\r\n}", ""]);
+exports.push([module.i, "@font-face {\r\n    font-family: 'BUTiger';\r\n    src: url(" + escape(__webpack_require__(9)) + ");\r\n    font-weight: 600;\r\n}\r\n\r\n.hello {\r\n    color: red;\r\n    background: url(" + escape(__webpack_require__(0)) + ");\r\n    font-family: 'BUTiger';\r\n}", ""]);
 
 // exports
 
@@ -17425,6 +17425,12 @@ function toComment(sourceMap) {
 /* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
+module.exports = __webpack_require__.p + "63f6674d667efbffd5ce51bff40c7f3c.otf";
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
 /*
 	MIT License http://www.opensource.org/licenses/mit-license.php
 	Author Tobias Koppers @sokra
@@ -17488,7 +17494,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(10);
+var	fixUrls = __webpack_require__(11);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -17804,7 +17810,7 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports) {
 
 

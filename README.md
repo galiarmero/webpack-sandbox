@@ -128,5 +128,50 @@ will resolve to this:
 
 **TODO (seek for answers):** How does `css-loader` and `file-loader` work together to have the same final url of the processed image? Who does the processing? How does the other know of the final url?
 
+**Answer**: 'css-loader' interprets `@import` and `url()` like `import/require()`. They will resolve whatever is imported using the configured loader for that specific file. In the examples above, the configured loader for images is `file-loader`. Thus, `background: url(../images/webpack-logo.svg)` was resolved using `file-loader`.
+
+## Loading Fonts
+
+For fonts, it works pretty much the same with images in that `file-loader` is also used.
+
+First, add the filters for font files and use `file-loader` to load them in **webpack.config.js**:
+```js
+{
+    test: /\.(woff|woff2|eot|ttf|otf)$/,
+    use: [
+        'file-loader'
+    ]
+}
+```
+
+Then, define a font using `@font-family` in the css file. We can then use this font to format elements using `font-family` property.
+
+```css
+@font-face {
+    font-family: 'BUTiger';
+    src: url('../fonts/BU Tiger Claw.otf');
+    font-weight: 600;
+}
+
+.hello {
+    color: red;
+    background: url(../images/webpack-logo.svg);
+    font-family: 'BUTiger';
+}
+```
+
+As it was with the image, the `url()` directive for this font was resolved using `file-loader`. After `file-loader` processes the font and spews it to the `output` folder, the `url()` will be resolved to the final url of the font (some hash value in our case). And that's it.
+
+## Other loaders
+
+There are a ton of other built-in **loaders**. For XML files, there is `xml-loader`. For CSV/TSV files, there's `csv-loader`. 
+
+JSON-format files, meanwhile, are naturally supported by _webpack_. This piece of import will work without defining any loader for JSON files:
+
+```js
+import Data from './data.json';
+```
+
+
 ## Learning notes
 This project contains [learning notes](./notes) put together while studying _webpack_.

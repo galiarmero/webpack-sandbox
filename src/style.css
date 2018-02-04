@@ -1,4 +1,11 @@
+@font-face {
+    font-family: 'BUTiger';
+    src: url('../fonts/BU Tiger Claw.otf');
+    font-weight: 600;
+}
+
 .hello {
     color: red;
-    background: url(../images/webpack-logo.svg)
+    background: url(../images/webpack-logo.svg);
+    font-family: 'BUTiger';
 }
