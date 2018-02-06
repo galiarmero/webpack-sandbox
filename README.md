@@ -104,6 +104,34 @@ Or...
 It will look for **webpack.config.js** by default. 
 
 
+### Using `npm` scripts
+
+We can also execute _webpack_ through `npm` so that we can wrap all our application scripts in a single tool. We do this by configuring **`npm` scripts**.
+
+**package.json**
+```json
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": ".\\node_modules\\.bin\\webpack"
+  },
+```
+
+Now, we can simply run `npm run build` to execute webpack. 
+
+We can also execute a different build script for production. _webpack_ provides `-p` argument as a shortcut to minimize and optimize the bundles. This is an alias for `--optimize-minimize --define process.env.NODE_ENV="production"`.
+
+**package.json**
+```json
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": ".\\node_modules\\.bin\\webpack",
+    "build:prod": ".\\node_modules\\.bin\\webpack -p"
+  },
+```
+
+Running `npm run build:prod` will now generate minified bundles.
+
+
 ## Loading CSS
 `style-loader` combined with `css-loader` should be added as **loaders** in configuration.
 ```
